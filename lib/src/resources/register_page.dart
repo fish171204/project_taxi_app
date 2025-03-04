@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/src/blocs/auth_bloc.dart';
+import 'package:taxi_app/src/resources/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -135,6 +136,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 stream: authBloc.passStream,
                 builder: (context, snapshot) => TextField(
                   controller: _passController,
+                  obscureText: true,
                   style: const TextStyle(fontSize: 18, color: Colors.black),
                   decoration: InputDecoration(
                       errorText:
@@ -190,9 +192,29 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  _onSignUpClicked() {
-    var isValid = authBloc.isValid(_nameController.text, _emailController.text,
-        _passController.text, _phoneController.text);
-    if (isValid) {}
+  void _onSignUpClicked() {
+    var isValid = authBloc.isValid(
+      _nameController.text,
+      _emailController.text,
+      _passController.text,
+      _phoneController.text,
+    );
+
+    if (isValid) {
+      // Đăng ký tài khoản
+      authBloc.signUp(
+        _emailController.text,
+        _passController.text,
+        _phoneController.text,
+        _nameController.text,
+        () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
+        },
+        (error) {
+          print("Đăng ký thất bại: $error");
+        },
+      );
+    }
   }
 }
