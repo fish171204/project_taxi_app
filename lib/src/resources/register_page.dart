@@ -1,6 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:taxi_app/src/blocs/auth_bloc.dart';
+import 'package:taxi_app/src/resources/dialog/loading_dialog.dart';
+import 'package:taxi_app/src/resources/dialog/msg_dialog.dart';
 import 'package:taxi_app/src/resources/home_page.dart';
+import 'package:taxi_app/src/resources/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -174,17 +178,28 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
                 child: RichText(
-                  text: const TextSpan(
-                      text: "Already a User? ",
-                      style: TextStyle(fontSize: 16, color: Color(0xff606470)),
-                      children: [
-                        TextSpan(
-                            text: "Login now",
-                            style: TextStyle(
-                                fontSize: 16, color: Color(0xff3277D8)))
-                      ]),
+                  text: TextSpan(
+                    text: "Already a User? ",
+                    style:
+                        const TextStyle(color: Color(0xff606470), fontSize: 16),
+                    children: [
+                      TextSpan(
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()),
+                            );
+                          },
+                        text: "Login now",
+                        style: const TextStyle(
+                            fontSize: 16, color: Color(0xff3277D8)),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -201,20 +216,29 @@ class _RegisterPageState extends State<RegisterPage> {
     );
 
     if (isValid) {
-      // Đăng ký tài khoản
+      // create user
+      // loading dialog
+      LoadingDialog.showLoadingDialog(context, "Đang nhập , vui lòng đợi!");
       authBloc.signUp(
         _emailController.text,
         _passController.text,
         _phoneController.text,
         _nameController.text,
         () {
+          // Trường hợp thành công -> Đi vào HOME ẩn dialog
+          LoadingDialog.hideLoadingDialog(context);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomePage()));
         },
-        (error) {
-          print("Đăng ký thất bại: $error");
+        (msg) {
+          // Trường hợp thất bại ẩn dialog
+          LoadingDialog.hideLoadingDialog(context);
+          // show msg dialog
+          MsgDialog.showMsgDialog(context, "Sign-In", msg);
         },
       );
     }
   }
+
+  void NavigatorLogin() {}
 }

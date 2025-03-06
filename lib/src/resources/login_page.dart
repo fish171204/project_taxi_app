@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:taxi_app/src/app.dart';
+import 'package:taxi_app/src/blocs/auth_bloc.dart';
+import 'package:taxi_app/src/resources/dialog/loading_dialog.dart';
+import 'package:taxi_app/src/resources/dialog/msg_dialog.dart';
+import 'package:taxi_app/src/resources/home_page.dart';
 import 'package:taxi_app/src/resources/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +15,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  AuthBloc authBloc = AuthBloc();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,32 +50,46 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 125, 0, 20),
-                child: TextField(
+                child: StreamBuilder(
+                  stream: authBloc.emailStream,
+                  builder: (context, snapshot) => TextField(
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                        errorText:
+                            snapshot.hasError ? snapshot.error as String : null,
+                        labelText: "Email",
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Image.asset('assets/ic_mail.png'),
+                        ),
+                        border: const OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Color(0xffCED0D2), width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(6)))),
+                  ),
+                ),
+              ),
+              StreamBuilder(
+                stream: authBloc.passStream,
+                builder: (context, snapshot) => TextField(
+                  controller: _passController,
                   style: const TextStyle(fontSize: 18, color: Colors.black),
+                  obscureText: true,
                   decoration: InputDecoration(
-                      labelText: "Email",
+                      errorText:
+                          snapshot.hasError ? snapshot.error as String : null,
+                      labelText: "Password",
                       prefixIcon: SizedBox(
                         width: 50,
-                        child: Image.asset('assets/ic_mail.png'),
+                        child: Image.asset('assets/ic_phone.png'),
                       ),
                       border: const OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Color(0xffCED0D2), width: 1),
                           borderRadius: BorderRadius.all(Radius.circular(6)))),
                 ),
-              ),
-              TextField(
-                style: const TextStyle(fontSize: 18, color: Colors.black),
-                decoration: InputDecoration(
-                    labelText: "Password",
-                    prefixIcon: SizedBox(
-                      width: 50,
-                      child: Image.asset('assets/ic_phone.png'),
-                    ),
-                    border: const OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xffCED0D2), width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(6)))),
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -85,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: _onLoginClick,
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -116,8 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                                   builder: (context) => const RegisterPage()),
                             );
                           },
-                        text:
-                            "Sign up for a new account", // Thiếu dấu phẩy đã được thêm vào
+                        text: "Sign up for a new account",
                         style: const TextStyle(
                             fontSize: 16, color: Color(0xff3277D8)),
                       ),
@@ -130,5 +152,30 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _onLoginClick() {
+    var isValidSignIn = authBloc.isValidSignIn(
+      _emailController.text,
+      _passController.text,
+    );
+
+    if (isValidSignIn) {
+      String email = _emailController.text;
+      String pass = _passController.text;
+      LoadingDialog.showLoadingDialog(context, "Đang nhập , vui lòng đợi!");
+      authBloc.signIn(email, pass,
+          // Đăng nhập thành công
+          () {
+        LoadingDialog.hideLoadingDialog(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const HomePage()));
+      },
+          // Đăng nhập thất bại
+          (msg) {
+        LoadingDialog.hideLoadingDialog(context);
+        MsgDialog.showMsgDialog(context, "Sign-In", msg);
+      });
+    }
   }
 }
