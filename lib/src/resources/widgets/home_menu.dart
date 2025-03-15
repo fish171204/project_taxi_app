@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/src/resources/login_page.dart';
 
 class HomeMenu extends StatefulWidget {
   const HomeMenu({super.key});
@@ -54,8 +55,16 @@ class _HomeMenuState extends State<HomeMenu> {
             "Logout",
             style: TextStyle(fontSize: 18, color: Color(0xff323643)),
           ),
+          onTap: onTapLog,
         )
       ],
     );
+  }
+
+  void onTapLog() {
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+        (Route<dynamic> route) => false);
   }
 }

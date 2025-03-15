@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/src/resources/ride_picker_page.dart';
 
 class RidePicker extends StatefulWidget {
   const RidePicker({super.key});
@@ -27,7 +28,16 @@ class _RidePickerState extends State<RidePicker> {
             width: double.infinity,
             height: 50,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => RidePickerPage(
+                    onSelected: (place, isFrom) {
+                      print("Selected place: ${place.name}, From: $isFrom");
+                    },
+                    isFromAddress: true, // Hoặc false, tùy vào logic của bạn
+                  ),
+                ));
+              },
               child: SizedBox(
                 width: double.infinity,
                 height: double.infinity,
@@ -68,7 +78,16 @@ class _RidePickerState extends State<RidePicker> {
             width: double.infinity,
             height: 50,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => RidePickerPage(
+                    onSelected: (place, isFrom) {
+                      print("Selected place: ${place.name}, From: $isFrom");
+                    },
+                    isFromAddress: true, // Hoặc false, tùy vào logic của bạn
+                  ),
+                ));
+              },
               child: SizedBox(
                 width: double.infinity,
                 height: double.infinity,
