@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">127114578507</string>
+    <string name="google_api_key" translatable="false">AIzaSyDJgu980zFVNOMvnXTKB3QOVL9zfoYyXC8</string>
+    <string name="google_app_id" translatable="false">1:127114578507:android:9077be6cc2f8758d06dbce</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDJgu980zFVNOMvnXTKB3QOVL9zfoYyXC8</string>
+    <string name="google_storage_bucket" translatable="false">taxiapp-76f94.firebasestorage.app</string>
+    <string name="project_id" translatable="false">taxiapp-76f94</string>
+</resources>
