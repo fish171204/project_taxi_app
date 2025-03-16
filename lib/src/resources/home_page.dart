@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:taxi_app/src/resources/widgets/card_pickup.dart';
+import 'package:taxi_app/src/resources/widgets/car_pickup.dart';
 import 'package:taxi_app/src/resources/widgets/ride_picker.dart';
 import 'package:taxi_app/src/resources/widgets/home_menu.dart';
 import 'package:taxi_app/src/resources/widgets/car_list_widget.dart';
@@ -122,7 +122,10 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
+// Mục đích: Di chuyển camera trên bản đồ đến vị trí phù hợp với các điểm đánh dấu (_markers).
+// Nếu có ít nhất 2 điểm đánh dấu ("from_address" và "to_address"), xác định phạm vi hiển thị tối ưu trên bản đồ bằng LatLngBounds để hiển thị cả hai điểm.
+// Nếu chỉ có một điểm đánh dấu, camera sẽ di chuyển đến vị trí của điểm đó.
+// Sử dụng _mapController.animateCamera() để điều chỉnh góc nhìn của bản đồ.
 
 //  void _moveCamera() {
 //     print("move camera: ");
@@ -156,6 +159,16 @@ class _HomePageState extends State<HomePage> {
 //           _markers.values.elementAt(0).options.position));
 //     }
 //   }
+
+
+
+// Mục đích: Kiểm tra và vẽ đường đi (polyline) giữa hai điểm đánh dấu trên bản đồ.
+// Xóa các polyline cũ trên bản đồ.
+// Nếu có ít nhất 2 điểm đánh dấu, lấy vị trí "from_address" và "to_address".
+// Gọi API PlaceService.getStep() để lấy thông tin tuyến đường giữa hai điểm.
+// Dựa vào kết quả trả về (TripInfoRes), cập nhật quãng đường (_tripDistance).
+// Duyệt danh sách các bước di chuyển (StepsRes), tạo danh sách tọa độ (LatLng) để vẽ tuyến đường.
+// Dùng _mapController.addPolyline() để hiển thị tuyến đường trên bản đồ.
 
 //   void _checkDrawPolyline() {
 // //  remove old polyline
