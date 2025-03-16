@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.taxi_app-mergeDebugResources-30:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.taxi_app-mergeDebugResources-32:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\de334d6e5cfc91fc5ba85a3b8a6d67bc\\transformed\\browser-1.4.0\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,153,250,359",
-                        "endColumns": "97,96,108,98",
-                        "endOffsets": "148,245,354,453"
-                    },
-                    "to": {
-                        "startLines": "27,28,29,30",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "2933,3031,3128,3237",
-                        "endColumns": "97,96,108,98",
-                        "endOffsets": "3026,3123,3232,3331"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\503afabe50ba029e64fbe6a70f120f2f\\transformed\\jetified-play-services-base-18.1.0\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\fbcec11db9ed3aaaeafec38912fb3440\\transformed\\jetified-play-services-base-18.1.0\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\6be828bfc761ec9853db404755774cad\\transformed\\core-1.13.1\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\96b40c3f0449b78fed3abad0b7234de9\\transformed\\core-1.13.1\\res\\values-en-rGB\\values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\2f5e70617d4d48a056d7cd53659417fe\\transformed\\jetified-play-services-basement-18.3.0\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\04941e4d25de8547b19b9da23ebbaeda\\transformed\\browser-1.4.0\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,250,359",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "148,245,354,453"
+                    },
+                    "to": {
+                        "startLines": "27,28,29,30",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2933,3031,3128,3237",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "3026,3123,3232,3331"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\KHOA\\.gradle\\caches\\transforms-3\\56b9fa2d6e690a29912cb9c589cf0ef8\\transformed\\jetified-play-services-basement-18.3.0\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
