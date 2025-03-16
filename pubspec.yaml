@@ -34,6 +34,8 @@ dependencies:
   firebase_auth: ^4.17.6 # Nếu dùng authentication
   cloud_firestore: ^4.15.6 # Nếu dùng Firestore
   firebase_database: ^10.4.6 # Thêm dòng này để sử dụng Realtime Database
+  google_maps_flutter: 2.3.0
+  http: ^0.13.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -71,6 +73,22 @@ flutter:
     - assets/ic_phone.png
     - assets/ic_mail.png
     - assets/ic_user.png
+    - assets/ic_notify.png
+    - assets/ic_menu.png
+    - assets/ic_location_black.png
+    - assets/ic_remove_x.png
+    - assets/ic_map_nav.png
+    - assets/ic_menu_user.png
+    - assets/ic_menu_history.png
+    - assets/ic_menu_percent.png
+    - assets/ic_menu_notify.png
+    - assets/ic_menu_help.png
+    - assets/ic_menu_logout.png
+    - assets/ic_pickup_sedan.png
+    - assets/ic_pickup_suv.png
+    - assets/ic_pickup_van.png
+    - assets/ic_pickup_hatchback.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
