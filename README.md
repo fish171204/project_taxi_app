@@ -17,7 +17,7 @@
 
 ## 3. HomePage:
 <img src="https://github.com/user-attachments/assets/1e23649e-e2ce-4663-b2c7-c1e9bd061983" width="300">
-<img src="https://github.com/user-attachments/assets/1017f630-40ae-481a-b9d9-30d41c9b9b01" width="300">
+<img src="https://github.com/user-attachments/assets/51f776b5-6785-4dee-a3fc-3a7ea38d8df6" width="300">
 
 ## 4. Ride Picker Page: 
 <img src="https://github.com/user-attachments/assets/236ffcda-0c0b-42e1-a985-bfc8e3a87cf5" width="300">
