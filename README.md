@@ -7,7 +7,7 @@
 <img src="https://github.com/user-attachments/assets/6fa1b28e-2e86-49a6-a4bc-356ae36cfa3d" width="300">
 <img src="https://github.com/user-attachments/assets/88fff60f-d915-4152-bf58-439b98057bdc" width="300">
 <img src="https://github.com/user-attachments/assets/1f38a428-d0ea-482c-b17e-1066f1a22a10" width="300">
-<img src="https://github.com/user-attachments/assets/cc30c5fb-f184-4c66-9e4a-a8254e062843" width="300">
+<img src="https://github.com/user-attachments/assets/cc30c5fb-f184-4c66-9e4a-a8254e062843" width="600">
 
 ## 2. Login Screen ( Firebase Auth + Bloc Auth ):
 <img src="https://github.com/user-attachments/assets/d4020f38-13b0-4fa8-9baf-25fb8f5fe882" width="300">
